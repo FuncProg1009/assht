@@ -1,0 +1,111 @@
+<br>
+<div class="container">
+  <div class="col-md-3 top_brand_left-1" *ngFor="let product of data | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="hover14 column">
+      <div class="agile_top_brand_left_grid">
+        <div class="agile_top_brand_left_grid_pos">
+          <img src="assets/images/offer.png" alt=" " class="img-responsive">
+        </div>
+        <div class="agile_top_brand_left_grid1">
+          <figure>
+            <div class="snipcart-item block">
+              <div class="snipcart-thumb">
+                <a href="products.html"><img title="" alt=" " src="assets/images/{{product.image}}.png"></a>
+                <p>{{product.name}}</p>
+                <div class="stars">
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                </div>
+                <h4>${{product.price*80/100}} <span>${{product.price}}</span></h4>
+              </div>
+              <div class="snipcart-details top_brand_home_details">
+                <form action="#" method="post">
+                  <fieldset>
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="add" value="1">
+                    <input type="hidden" name="business" value=" ">
+                    <input type="hidden" name="item_name" value="basmati rise">
+                    <input type="hidden" name="amount" value="30.99">
+                    <input type="hidden" name="discount_amount" value="1.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value=" ">
+                    <input type="hidden" name="cancel_return" value=" ">
+                    <input type="submit" name="submit" value="Add to cart" class="button">
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+<ngb-pagination style=""
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="data.length">
+</ngb-pagination>
+</div>
+<div class="container">
+
+
+<ng-template #rt let-r="result" let-t="term">
+  <img [src]="'assets/images/' + r['image'] + '.png'" class="mr-1" style="width: 16px">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<label for="typeahead-template">Search for a Product :</label>
+<input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
+       [inputFormatter]="formatter" />
+<hr>
+
+  <div class="col-md-3 top_brand_left-1"  *ngIf="model!=null">
+    <div class="hover14 column">
+      <div class="agile_top_brand_left_grid">
+        <div class="agile_top_brand_left_grid_pos">
+          <img src="assets/images/offer.png" alt=" " class="img-responsive">
+        </div>
+        <div class="agile_top_brand_left_grid1">
+          <figure>
+            <div class="snipcart-item block">
+              <div class="snipcart-thumb">
+                <a href="products.html"><img title=" " alt=" " src="assets/images/{{model.image}}.png"></a>
+                <p>{{model.name}}</p>
+                <div class="stars">
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                  <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                </div>
+                <h4>${{model.price*80/100}} <span>${{model.price}}</span></h4>
+              </div>
+              <div class="snipcart-details top_brand_home_details">
+                <form action="#" method="post">
+                  <fieldset>
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="add" value="1">
+                    <input type="hidden" name="business" value=" ">
+                    <input type="hidden" name="item_name" value="basmati rise">
+                    <input type="hidden" name="amount" value="30.99">
+                    <input type="hidden" name="discount_amount" value="1.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value=" ">
+                    <input type="hidden" name="cancel_return" value=" ">
+                    <input type="submit" name="submit" value="Add to cart" class="button">
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

@@ -1,0 +1,24 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <h1>Thêm mới</h1>
+    <form *ngIf="add" action="" method="post" role="form">
+      <div class="form-group">
+        <label for="">NAME</label>
+        <input [(ngModel)]="add.name" [ngModelOptions]="{standalone: true}" value="{{add.name}}" type="text" class="form-control"  placeholder="Input...">
+      </div>
+      <div class="form-group">
+        <label for="">PRICE</label>
+        <input [(ngModel)]="add.price" [ngModelOptions]="{standalone: true}" value="{{add.price}}" type="text" class="form-control" placeholder="Input...">
+      </div>
+      <div class="form-group">
+        <label for="">Image</label>
+        <input [(ngModel)]="add.image" [ngModelOptions]="{standalone: true}" value="{{add.image}}" type="text" class="form-control" placeholder="Input...">
+      </div>
+      <button (click)="Insert(add)">Save</button>
+    </form>
+
+  </div>
+</div>

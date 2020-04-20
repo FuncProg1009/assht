@@ -1,0 +1,43 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let product of data | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td><ngb-accordion #acc="ngbAccordion">
+          <ngb-panel id="toggle-1" title="Manager">
+            <ng-template ngbPanelContent>
+              <button (click)="detail(product.id)" type="button" class="btn btn-primary">Detail</button>
+              <button (click)="getid(product.id)" type="button" class="btn btn-primary">Update</button>
+              <button (click)="deleteproduct(product.id)" type="button" class="btn btn-primary">Delete</button>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <ngb-pagination style=""
+                    [(page)]="page"
+                    [pageSize]="pageSize"
+                    [collectionSize]="data.length">
+    </ngb-pagination>
+  </div>
+</div>
+
+

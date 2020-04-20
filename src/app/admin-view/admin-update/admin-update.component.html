@@ -1,0 +1,26 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+
+    <form *ngIf="edit" action="" method="post" role="form">
+      <legend>ID : {{edit.id}}</legend>
+
+      <div class="form-group">
+        <label for="">NAME</label>
+        <input [(ngModel)]="edit.name" [ngModelOptions]="{standalone: true}" value="{{edit.name}}" type="text" class="form-control"  placeholder="Input...">
+      </div>
+      <div class="form-group">
+        <label for="">PRICE</label>
+        <input [(ngModel)]="edit.price" [ngModelOptions]="{standalone: true}" value="{{edit.price}}" type="text" class="form-control" placeholder="Input...">
+      </div>
+      <div class="form-group">
+        <label for="">Image</label>
+        <input [(ngModel)]="edit.image" [ngModelOptions]="{standalone: true}" value="{{edit.image}}" type="text" class="form-control" placeholder="Input...">
+      </div>
+      <button (click)="Update(edit)">Save</button>
+    </form>
+  </div>
+</div>
